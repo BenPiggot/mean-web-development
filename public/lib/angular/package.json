@@ -1,0 +1,29 @@
+{
+  "name": "angular",
+<<<<<<< HEAD
+  "version": "1.5.5",
+=======
+  "version": "1.4.6",
+>>>>>>> 0f33465abf95d1f66da9dc0741ff72c5304eda4a
+  "description": "HTML enhanced for web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular.js.git"
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "client-side"
+  ],
+  "author": "Angular Core Team <angular-core+npm@google.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org"
+}
