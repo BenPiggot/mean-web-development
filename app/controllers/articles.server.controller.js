@@ -38,3 +38,41 @@ exports.list = function(req, res) {
     }
   });
 };
+
+
+exports.articlesByID = function(req, res, next, id) {
+  Article.findById(id).populate('creator',
+    'firstName lastName fullName').exec(function(err, articles) {
+    if (err) return next(err);
+    if (!articles) return next(new Error('Failed to load article ' + id));
+
+    req.article = article;
+    next();
+  })
+}
+
+
+exports.read = function(req, res) {
+  res.json(req.article);
+}
+
+
+exports.update = function(req, res) {
+  var article = req.article;
+
+  article.title = req.body.title;
+  article.content = req.body.content;
+
+  article.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err);
+      })
+    } else {
+      res.json(article);
+    }
+  })
+}
+
+
+
