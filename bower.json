@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 { 
   "name": "MEAN",
   "version": "1.4.1",
   "dependencies": {
     "angular": "1.5.5",
     "angular-route": "1.5.5"
-=======
-{
-  "name": "MEAN",
-  "version": "1.4.1",
-  "dependencies": {
-    "angular": "1.4.6"
->>>>>>> 0f33465abf95d1f66da9dc0741ff72c5304eda4a
   }
 }

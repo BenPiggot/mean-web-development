@@ -11,10 +11,6 @@ module.exports = function(app) {
   app.get('/oauth/facebook/callback', passport.authenticate('facebook',
     { failureRedirect: '/signin' }),
       function(req, res) {
-<<<<<<< HEAD
-=======
-            console.log('faceboooooooooak yeahhhhhhh')
->>>>>>> 0f33465abf95d1f66da9dc0741ff72c5304eda4a
       res.redirect('/');
   });
 
@@ -26,10 +22,6 @@ module.exports = function(app) {
   app.get('/oauth/twitter/callback', passport.authenticate('twitter',
     { failureRedirect: '/signin' }),
       function(req, res) {
-<<<<<<< HEAD
-=======
-            console.log('tweeeeeeeeet yeahhhhhhh')
->>>>>>> 0f33465abf95d1f66da9dc0741ff72c5304eda4a
     // Successful authentication, redirect home.
       res.redirect('/');
   });
@@ -45,10 +37,6 @@ module.exports = function(app) {
   app.get('/oauth/google/callback', passport.authenticate('google',
     { failureRedirect: '/signin' }),
       function(req, res) {
-<<<<<<< HEAD
-=======
-            console.log('gooooooooooooooogling yeahhhhhhh')
->>>>>>> 0f33465abf95d1f66da9dc0741ff72c5304eda4a
     // Successful authentication, redirect home.
       res.redirect('/');
   });
@@ -67,14 +55,4 @@ module.exports = function(app) {
 
   app.get('/signout', users.signout);
 
-  app.route('/users')
-  .post(users.create)
-  .get(users.list);
-
-  app.route('/users/:userId')
-    .get(users.read)
-    .put(users.update)
-    .delete(users.delete);
-
-  app.param('userId', users.userByID);
 }
