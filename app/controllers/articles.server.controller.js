@@ -18,7 +18,7 @@ exports.create = function(req, res) {
   article.save(function(err) {
     if (err) {
       return res.status(400).send({
-        message: getErrorMessage(err);
+        message: getErrorMessage(err)
       })
     } else {
       res.json(article);
@@ -31,7 +31,7 @@ exports.list = function(req, res) {
     'firstName lastName fullName').exec(function(err, articles) {
     if (err) {
       return res.status(400).send({
-        message: getErrorMessage(err);
+        message: getErrorMessage(err)
       })
     } else {
       res.json(articles);
@@ -41,9 +41,9 @@ exports.list = function(req, res) {
 
 exports.articlesByID = function(req, res, next, id) {
   Article.findById(id).populate('creator',
-    'firstName lastName fullName').exec(function(err, articles) {
+    'firstName lastName fullName').exec(function(err, article) {
     if (err) return next(err);
-    if (!articles) return next(new Error('Failed to load article ' + id));
+    if (!article) return next(new Error('Failed to load article ' + id));
 
     req.article = article;
     next();
@@ -63,7 +63,7 @@ exports.update = function(req, res) {
   article.save(function(err) {
     if (err) {
       return res.status(400).send({
-        message: getErrorMessage(err);
+        message: getErrorMessage(err)
       })
     } else {
       res.json(article);
@@ -77,7 +77,7 @@ exports.delete = function(req, res) {
   article.remove(function(err) {
     if (err) {
       return res.status(400).send({
-        message: getErrorMessage(err);
+        message: getErrorMessage(err)
       })
     } else {
       res.json(article);
@@ -85,7 +85,7 @@ exports.delete = function(req, res) {
   })
 }
 
-exports.hasAuthorization = function(req, res) {
+exports.hasAuthorization = function(req, res, next) {
   if (req.article.creator.id !== req.user.id) {
     return res.status(403).send({
       message: 'User is not authorized'

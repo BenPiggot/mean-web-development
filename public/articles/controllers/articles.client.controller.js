@@ -1,28 +1,28 @@
-angular.module('articles').controller('ArticleController', ['$scope', '$routeParams', '$location', 'Authentication', 'Articles', 
+angular.module('articles').controller('ArticlesController', ['$scope', '$routeParams', '$location', 'Authentication', 'Articles',
   function($scope, $routeParams, $location, Authentication, Articles) {
-    $scope.authentication = Authentication; 
+    $scope.authentication = Authentication;
 
     $scope.create = function() {
-      var article = new Article({
+      var article = new Articles({
         title: this.title,
         content: this.content
       });
-
       article.$save(function(response) {
         $location.path('articles/' + response._id);
       }, function(errorResponse) {
         $scope.error = errorResponse.data.message;
-      })
+      });
     };
 
     $scope.find = function() {
       $scope.articles = Articles.query();
+      console.log($scope.articles)
     };
 
     $scope.findOne = function() {
       $scope.article = Articles.get({
-        articleId: $routeParams.articleId;
-      })
+        articleId: $routeParams.articleId
+      });
     };
 
     $scope.update = function() {
@@ -30,10 +30,10 @@ angular.module('articles').controller('ArticleController', ['$scope', '$routePar
         $location.path('articles/' + $scope.article._id);
       }, function(errorResponse) {
         $scope.error = errorResponse.data.message;
-      })
+      });
     };
 
-    $scope.delete = function() {
+    $scope.delete = function(article) {
       if (article) {
         article.$remove(function() {
           for (var i in $scope.articles) {
@@ -41,13 +41,12 @@ angular.module('articles').controller('ArticleController', ['$scope', '$routePar
               $scope.articles.splice(i, 1);
             }
           }
-        })
+        });
       } else {
         $scope.article.$remove(function() {
           $location.path('articles');
-        })
+        });
       }
     };
-    
   }
-])
+]);

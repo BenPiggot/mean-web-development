@@ -1,4 +1,4 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">\
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
 
   <h1 data-ng-bind="article.title"></h1>
 
@@ -9,9 +9,9 @@
 
   <small>
     <em>Posted On</em>
-    <em data-ng-bind="article.create | date: 'mediumDate'"></em>
+    <em data-ng-bind="article.created | date: 'mediumDate'"></em>
     <em>by</em>
-    <em data-ng-bind="article.creator.fullName"></em>
+    <em>{{article.creator.firstName}} {{article.creator.lastName}}</em>
   </small>
 
   <p data-ng-bind="article.content"></p>

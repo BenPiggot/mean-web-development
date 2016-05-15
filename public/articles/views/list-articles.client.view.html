@@ -4,11 +4,11 @@
 
   <ul>
     <li data-ng-repeat="article in articles">
-      <a data-ng-href="#!/articles/{{articles._id}}" data-ng-bind="article.title"></a>
+      <a href="#!/articles/{{article._id}}" data-ng-bind="article.title"></a>
       <br />
-      <small data-ng-bind="articles.create | date: 'medium'"></small>
+      <small data-ng-bind="article.created | date: 'medium'"></small>
       <small>/</small>
-      <small data-ng-bind="articles.creator.fullName"></small>
+      <small>{{article.creator.firstName}} {{article.creator.lastName}}</small>
       <p data-ng-bind="article.content"></p>
     </li>
   </ul>
