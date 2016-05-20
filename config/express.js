@@ -13,10 +13,11 @@ var passport = require('passport');
 
 
 
-module.exports = function() {s
+module.exports = function(db) {
   var app = express();
   var server = http.createServer(app);
   var io = socketio.listen(server);
+
 
   if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
@@ -54,6 +55,6 @@ module.exports = function() {s
 
   app.use(express.static('./public'));
 
-  requrie('./socketio')(server, io, mongoStore);
+  require('./socketio')(server, io, mongoStore);
   return server;
 }

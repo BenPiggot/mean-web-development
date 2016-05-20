@@ -12,7 +12,7 @@ module.exports = function(server, io, mongoStore) {
           socket.request.session = session;
 
           passport.initialize()(socket.request, {}, function() {
-            passport.session()(socket.requrest, {}, function() {
+            passport.session()(socket.request, {}, function() {
               if (socket.request.user) {
                 next(null, true)
               } else {
@@ -21,7 +21,7 @@ module.exports = function(server, io, mongoStore) {
             });
           });
         });
-      })l
+      });
     });
 
   io.on('connection', function(socket) {
