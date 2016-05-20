@@ -1,5 +1,5 @@
 angular.module('chat').service('Socket', ['Authentication', '$location', '$timeout',
-  function(Authentication, $location, $tiemout) {
+  function(Authentication, $location, $timeout) {
     if (Authentication.user) {
       this.socket = io();
     } else {
