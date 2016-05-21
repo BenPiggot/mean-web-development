@@ -29,6 +29,9 @@
   },
   "devDependencies": {
     "should": "~4.0.4",
-    "supertest": "~0.13.0"
+    "supertest": "~0.13.0",
+    "karma": "~0.12.22",
+    "karma-jasmine": "~0.2.2",
+    "karma-phantomjs-launcher": "~1.0.0"
   }
 }
